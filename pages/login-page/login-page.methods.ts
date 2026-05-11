@@ -14,6 +14,15 @@ export class LogingPageMethods {
         await this.loginPageElements.testboxes.username.fill(username);
     }
 
+    async insertPassword(password: string) {
+        await this.loginPageElements.testboxes.password.fill(password);
+    }
+
+    async clickLoginButton() {
+        await this.loginPageElements.buttons.login.click();
+    }
+    
+
 
 
 
