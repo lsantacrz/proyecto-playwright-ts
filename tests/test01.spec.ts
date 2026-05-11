@@ -15,6 +15,8 @@ test('Login', async ({ page }) => {
 
     await commonPageMethods.navigateToTheApplication();
     await loginPageMethods.insertUsername(userCredentials.usernames.standard_user);
-    await page.waitForTimeout(5000);
+    await loginPageMethods.insertPassword(userCredentials.password);
+    await loginPageMethods.clickLoginButton();
+    await page.waitForTimeout(10000);
 
 });
