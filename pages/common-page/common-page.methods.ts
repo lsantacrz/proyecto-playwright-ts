@@ -20,6 +20,25 @@ export class CommonPageMethods {
         await this.page.goto('https://www.saucedemo.com');
     }
 
+    async openLeftMenu() {
+        await this.commonPageElements.buttons.openMenu.click();
+    }
 
+    async clickOnAllItemsButton() {
+        await this.commonPageElements.leftMenu.allItems.click();
+    }
+
+    async clickOnAboutButton() {
+        await this.commonPageElements.leftMenu.about.click();
+    }
+
+    async clickOnLogoutButton() {
+        await this.commonPageElements.leftMenu.logout.click();
+    }
+
+    async clickOnResetAppStateButton() {
+        await this.commonPageElements.leftMenu.resetAppState.click();
+    }
+    
 
 }
