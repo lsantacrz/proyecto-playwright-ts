@@ -4,7 +4,7 @@ import { LogingPageMethods } from '../pages/login-page/login-page.methods';
 import { LoginPageData } from '../pages/login-page/login-page.data';
 
 
-const userCredentials = LoginPageData.credentials
+const userCredentials = LoginPageData.credentials;
 ;
 
 
