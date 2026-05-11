@@ -3,6 +3,7 @@ import{ CommonPageMethods } from '../pages/common-page/common-page.methods';
 import { LogingPageMethods } from '../pages/login-page/login-page.methods';
 import { LoginPageData } from '../pages/login-page/login-page.data';
 import { ProductsPageMethods } from '../pages/products-page/products-page.methods';
+import { CartPageMethods } from '../pages/cart-page/cart-page.methods';
 
 
 
@@ -14,6 +15,7 @@ test('Login', async ({ page }) => {
     const commonPageMethods = new CommonPageMethods(page);
     const loginPageMethods = new LogingPageMethods(page);
     const productsPageMethods = new ProductsPageMethods(page);
+    const cartPageMethods = new CartPageMethods(page);
 
     await commonPageMethods.navigateToTheApplication();
     await loginPageMethods.insertUsername(userCredentials.usernames.standard_user);
@@ -21,6 +23,10 @@ test('Login', async ({ page }) => {
     await loginPageMethods.clickLoginButton();
     await productsPageMethods.addProductToCart('Sauce Labs Backpack');
     await productsPageMethods.clickOnCartIcon();
+    await cartPageMethods.clickOnCheckoutButton();
+    //await cartPageMethods.clickOnContinuesShoppingButton();
+    //await cartPageMethods.clickOnRemoveButton('Sauce Labs Backpack');
+
     //await commonPageMethods.openLeftMenu();
     await page.waitForTimeout(10000);
 
