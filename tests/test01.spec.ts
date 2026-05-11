@@ -20,6 +20,7 @@ test('Login', async ({ page }) => {
     await loginPageMethods.insertPassword(userCredentials.password);
     await loginPageMethods.clickLoginButton();
     await productsPageMethods.addProductToCart('Sauce Labs Backpack');
+    await productsPageMethods.clickOnCartIcon();
     //await commonPageMethods.openLeftMenu();
     await page.waitForTimeout(10000);
 
