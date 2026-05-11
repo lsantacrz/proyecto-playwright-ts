@@ -17,6 +17,7 @@ test('Login', async ({ page }) => {
     await loginPageMethods.insertUsername(userCredentials.usernames.standard_user);
     await loginPageMethods.insertPassword(userCredentials.password);
     await loginPageMethods.clickLoginButton();
+
     await page.waitForTimeout(10000);
 
 });
