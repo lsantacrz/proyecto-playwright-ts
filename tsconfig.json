@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    // ... otras configuraciones
+    "types": ["node"]
+  }
+}
