@@ -1,5 +1,6 @@
 import { Page } from "@playwright/test";
 import { CheckOutOverviewPageElements } from "./checkout-overview-page.elements";
+import { Logger } from "../../support/logger";
 
 
 export class CheckOverviewPageMethods {
@@ -12,10 +13,12 @@ export class CheckOverviewPageMethods {
     }   
 
     async clickOnFinishButton() {
+        await Logger.logStep('Click on Finish button');
         await this.checkOutOverviewPageElements.buttons.finish.click();
     }
 
     async clickOnCancelButton() {
+        await Logger.logStep('Click on Cancel button');
         await this.checkOutOverviewPageElements.buttons.cancel.click();
     }
 }
