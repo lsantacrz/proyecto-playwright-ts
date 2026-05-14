@@ -26,5 +26,8 @@
     "@types/node": "^25.7.0",
     "allure-commandline": "^2.40.0",
     "allure-playwright": "^3.8.0"
+  },
+  "dependencies": {
+    "rimraf": "^6.1.3"
   }
 }
