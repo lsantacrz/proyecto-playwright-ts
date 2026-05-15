@@ -22,13 +22,17 @@ test.describe('Login', () => {
         await productsPageMethods.verifyProducPageIsDisplayed();
     });
 
-    // test('Login with invalid credentials', async ({ page }) => {
-    //     const commonPageMethods = new CommonPageMethods(page);
-    //     const loginPageMethods = new LogingPageMethods(page);
+    test('Login with invalid credentials', async ({ page }) => {
+         const commonPageMethods = new CommonPageMethods(page);
+         const loginPageMethods = new LogingPageMethods(page);
 
-    //     await commonPageMethods.navigateToTheApplication();
-    //     await loginPageMethods.insertUsername(credential.usernames.invalid_user);
-    //     await loginPageMethods.insertPassword(credential.password);
-    //     await loginPageMethods.clickLoginButton();
-    // });
+         await commonPageMethods.navigateToTheApplication();
+         await loginPageMethods.insertUsername('Dummy');
+         await loginPageMethods.insertPassword('password');
+         await loginPageMethods.clickLoginButton();
+            await loginPageMethods.verifyMessage('Username and password do not match any user in this service');
+   });
+
+
+
 });
