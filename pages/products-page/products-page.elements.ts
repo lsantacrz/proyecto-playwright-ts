@@ -19,4 +19,10 @@ export class ProductsPageElements {
 
     }
 
+    get otherElements() {
+        return {
+            pageTitle: this.page.locator('.title'),
+        }
+    }
+
 }
