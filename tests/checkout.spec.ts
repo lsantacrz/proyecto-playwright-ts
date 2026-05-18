@@ -10,7 +10,7 @@ import { CheckOverviewPageMethods } from '../pages/checkout-overview-page/checko
 
 
 
-test.describe.only('Checkout test cases', () => {
+test.describe('Checkout test cases', () => {
 
   test('Checkout process', async ({ page }) => {
     // Implement the checkout process test case here
@@ -47,3 +47,4 @@ test.describe.only('Checkout test cases', () => {
 
   });
 });
+    
