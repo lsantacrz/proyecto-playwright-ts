@@ -21,4 +21,13 @@ export class CheckOverviewPageMethods {
         await Logger.logStep('Click on Cancel button');
         await this.checkOutOverviewPageElements.buttons.cancel.click();
     }
+
+    async verifyOverviewPageIsDisplayed() {
+        await Logger.logStep('Verify overview page is displayed');
+        await this.checkOutOverviewPageElements.overviewTitle.waitFor({ state: 'visible' });
+    }
+
+
+
+
 }

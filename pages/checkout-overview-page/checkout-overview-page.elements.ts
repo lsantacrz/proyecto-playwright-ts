@@ -12,4 +12,8 @@ export class CheckOutOverviewPageElements {
             cancel: this.page.locator('button[data-test="cancel"]'),
         }
     }
+
+    get overviewTitle() {
+        return this.page.locator('.title');
+    }
 }
