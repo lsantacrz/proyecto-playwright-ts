@@ -9,8 +9,10 @@ import { CartPageMethods } from '../pages/cart-page/cart-page.methods';
 
 
 
-test.describe('Cart', () => {
-  test('should add item to cart', async ({ page }) => {
+test.describe('Cart test cases', () => {
+
+
+  test('Add item to cart', async ({ page }) => {
     const commonPageMethods = new CommonPageMethods(page);
     const loginPageMethods = new LogingPageMethods(page);
     const productsPageMethods = new ProductsPageMethods(page);
@@ -25,9 +27,32 @@ test.describe('Cart', () => {
     
     await productsPageMethods.addProductToCart(productName);
     await productsPageMethods.clickOnCartIcon();
-    await cartPageMethods.verifyProductISDisplayed(productName);    
-
-
-
+    await cartPageMethods.verifyProductISDisplayed(productName);   
   });
+
+test('Remove item from cart', async ({ page }) => {
+    const commonPageMethods = new CommonPageMethods(page);
+    const loginPageMethods = new LogingPageMethods(page);
+    const productsPageMethods = new ProductsPageMethods(page);
+    const cartPageMethods = new CartPageMethods(page);
+    const productName = 'Sauce Labs Onesie';
+
+
+    Logger.logPostCondition('Item is added to cart');
+    await commonPageMethods.navigateToTheApplication();
+    await loginPageMethods.login(standard_user);     
+    await productsPageMethods.addProductToCart(productName);
+
+    await productsPageMethods.clickOnCartIcon();
+    await cartPageMethods.clickOnRemoveButton(productName);
+    await cartPageMethods.verifyProductIsNotDisplayed(productName);
+
+    
+  });
+
+
+
+
+
+
 });

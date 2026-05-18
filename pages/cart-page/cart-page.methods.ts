@@ -34,4 +34,12 @@ export class CartPageMethods {
         const productsCount = await this.cartPageElements.removeButton(productName).count();
         expect (productsCount).toEqual(1);
     }
+
+
+    async verifyProductIsNotDisplayed(productName: string) {
+        await Logger.logStep('Verify product is not displayed in cart: ' + productName);
+        const productsCount = await this.cartPageElements.removeButton(productName).count();
+        expect (productsCount).toEqual(0);
+    }
+
 }
