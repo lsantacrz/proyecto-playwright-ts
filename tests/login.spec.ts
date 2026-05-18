@@ -35,6 +35,9 @@ test.describe('Login', () => {
             await loginPageMethods.verifyMessage('Username and password do not match any user in this service');
    });
 
+
+   // This test is to verify that the user can login with valid credentials, but without using the methods to insert username and password,
+   // that the login method works correctly using INTERFACES instead.
    test('Login', async ({ page }) => {
          const commonPageMethods = new CommonPageMethods(page);
          const loginPageMethods = new LogingPageMethods(page);
@@ -43,6 +46,17 @@ test.describe('Login', () => {
          await loginPageMethods.login(interfaces.standard_user);
 
    });
+
+    test('Login with Blank credentials', async ({ page }) => {
+        const commonPageMethods = new CommonPageMethods(page);
+        const loginPageMethods = new LogingPageMethods(page);
+
+        await commonPageMethods.navigateToTheApplication();
+        await loginPageMethods.clickLoginButton();
+        await loginPageMethods.verifyMessage('Username is required');   
+    });
+
+
 
 
 
