@@ -1,6 +1,7 @@
 import { Page } from 'playwright';
 import { CartPageElements } from './cart-page.elements';
 import { Logger } from '../../support/logger';
+import { expect } from '@playwright/test';
 
 export class CartPageMethods {
     private page: Page;
@@ -26,5 +27,11 @@ export class CartPageMethods {
         await Logger.logStep('Click on Remove button for product: ' + productName);
         await this.cartPageElements.removeButton(productName).click();
     
+    }
+
+    async verifyProductISDisplayed(productName: string) {
+        await Logger.logStep('Verify product is displayed in cart: ' + productName);
+        const productsCount = await this.cartPageElements.removeButton(productName).count();
+        expect (productsCount).toEqual(1);
     }
 }
